@@ -14,17 +14,45 @@ Config.RentalMenus = {
             label = 'Blista'
         }}
     },
+    legionsquare = {
+        label = "Car Rental",
+        vehicles = {{
+            model = 'sultan',
+            price = 1000,
+            label = 'Karin Sultan'
+        }, {
+            model = 'sultanrs',
+            price = 1000,
+            label = 'Karin Sultan RS'
+        }}
+    },
 }
 
 -- Creating locations for renting a vehicle including setting which menu belongs to it including the settings of the ped on which to interact.
 Config.RentalLocations = {
     {
-        pedCoords = vector4(-777.95404052734, -1316.9152832031, 4.0009365081787, 50.731616973877),
-        vehCoords =  vector4(-734.43762207031, -1379.4068603516, 1.742390871048, 56.641998291016),
+        pedCoords = vector4(-296.17, -993.09, 31.08, 342.58),
+        vehCoords =  vector4(-297.78, -990.55, 30.47, 339.22),
         model = 'mp_m_waremech_01',
         scenario = 'WORLD_HUMAN_CLIPBOARD',
 
         menu = 'apartment'
+
+        -- blip = {
+        --     show = true,
+        --     coords = coords = vector3(-777.95404052734, -1316.9152832031, 4.0009365081787),
+        --     sprite = 782,
+        --     color = 0,
+        --     scale = 0.7,
+        -- }
+    },
+    {
+        pedCoords = vector4(173.46, -1001.83, 29.34, 170.97),
+        vehCoords =  vector4(174.48, -1011.7, 28.67, 205.16),
+        model = 'mp_m_waremech_01',
+        scenario = 'WORLD_HUMAN_CLIPBOARD',
+
+        menu = 'legionsquare'
 
         -- blip = {
         --     show = true,
