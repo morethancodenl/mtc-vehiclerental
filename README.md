@@ -2,7 +2,7 @@
 
 # Vehicle Rental
 
-A vehicle rental script for QBCore or Qbox Framework, within the script we focused on usability and a clean and clear user interface. In our script you have the choice to make different category's of vehicles. This is completely adjustable to make your server according to your own wishes.
+A vehicle rental script for QBCore or Qbox Framework, within the script we focused on usability. In our script you have the choice to make different rental locations with different vehicles. This is completely adjustable to make your server according to your own wishes.
 
 ## 💻 Dependencies
 
