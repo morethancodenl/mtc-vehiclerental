@@ -36,7 +36,7 @@ Config.RentalLocations = {
         model = 'mp_m_waremech_01',
         scenario = 'WORLD_HUMAN_CLIPBOARD',
 
-        menu = 'apartment'
+        menu = 'apartment',
 
         blip = {
             show = true,
@@ -53,7 +53,7 @@ Config.RentalLocations = {
         model = 'mp_m_waremech_01',
         scenario = 'WORLD_HUMAN_CLIPBOARD',
 
-        menu = 'legionsquare'
+        menu = 'legionsquare',
 
         blip = {
             show = true,
