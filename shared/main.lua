@@ -38,13 +38,14 @@ Config.RentalLocations = {
 
         menu = 'apartment'
 
-        -- blip = {
-        --     show = true,
-        --     coords = coords = vector3(-777.95404052734, -1316.9152832031, 4.0009365081787),
-        --     sprite = 782,
-        --     color = 0,
-        --     scale = 0.7,
-        -- }
+        blip = {
+            show = true,
+            label = "Vehicle rental",
+            coords = vector3(-777.95404052734, -1316.9152832031, 4.0009365081787),
+            sprite = 782,
+            color = 0,
+            scale = 0.7,
+        }
     },
     {
         pedCoords = vector4(173.46, -1001.83, 29.34, 170.97),
@@ -54,12 +55,13 @@ Config.RentalLocations = {
 
         menu = 'legionsquare'
 
-        -- blip = {
-        --     show = true,
-        --     coords = coords = vector3(-777.95404052734, -1316.9152832031, 4.0009365081787),
-        --     sprite = 782,
-        --     color = 0,
-        --     scale = 0.7,
-        -- }
+        blip = {
+            show = true,
+            label = "Vehicle rental",
+            coords = vector3(-777.95404052734, -1316.9152832031, 4.0009365081787),
+            sprite = 782,
+            color = 0,
+            scale = 0.7,
+        }
     },
 }
