@@ -31,7 +31,7 @@ Config.RentalMenus = {
 -- Creating locations for renting a vehicle including setting which menu belongs to it including the settings of the ped on which to interact.
 Config.RentalLocations = {
     {
-        pedCoords = vector4(-296.17, -993.09, 31.08, 342.58),
+        pedCoords = vector4(-296.17, -993.09, 30.08, 341.58),
         vehCoords =  vector4(-297.78, -990.55, 30.47, 339.22),
         model = 'mp_m_waremech_01',
         scenario = 'WORLD_HUMAN_CLIPBOARD',
@@ -41,14 +41,14 @@ Config.RentalLocations = {
         blip = {
             show = true,
             label = "Vehicle rental",
-            coords = vector3(-777.95404052734, -1316.9152832031, 4.0009365081787),
+            coords = vector3(-296.17, -993.09, 31.08),
             sprite = 782,
             color = 0,
             scale = 0.7,
         }
     },
     {
-        pedCoords = vector4(173.46, -1001.83, 29.34, 170.97),
+        pedCoords = vector4(173.46, -1001.83, 28.34, 170.97),
         vehCoords =  vector4(174.48, -1011.7, 28.67, 205.16),
         model = 'mp_m_waremech_01',
         scenario = 'WORLD_HUMAN_CLIPBOARD',
@@ -58,7 +58,7 @@ Config.RentalLocations = {
         blip = {
             show = true,
             label = "Vehicle rental",
-            coords = vector3(-777.95404052734, -1316.9152832031, 4.0009365081787),
+            coords = vector3(173.46, -1001.83, 29.34),
             sprite = 782,
             color = 0,
             scale = 0.7,
