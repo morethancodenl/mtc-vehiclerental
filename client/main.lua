@@ -11,15 +11,16 @@ AddEventHandler('mtc-vehiclerental:client:rentVehicle', function(vehicle)
     end
 
     TriggerServerEvent('mtc-vehiclerental:server:rentVehicle', vehicle)
-    
+
     QBCore.Functions.SpawnVehicle(vehicle.model, function(veh)
+        SetEntityHeading(veh, SpawnCoords.w)
+        exports['LegacyFuel']:SetFuel(veh, 100.0)
 
         SetVehicleNumberPlateText(veh, "RENT" .. math.random(1000, 9999))
-
-        SetEntityHeading(veh, GetEntityHeading(cache.ped))
-        exports['LegacyFuel']:SetFuel(veh, 100.0)
         TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(veh))
-        SetVehicleEngineOn(veh, true, true)
+
+        SetVehicleEngineOn(veh, true, true)    
+        SetVehicleDirtLevel(veh, 0.0)
         
         QBCore.Functions.Notify("Vehicle successfully rented.", "success")
     end, SpawnCoords, true, true)
