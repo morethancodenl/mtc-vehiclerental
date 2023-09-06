@@ -1,7 +1,10 @@
 ![Rental](https://i.imgur.com/5qx3EDX.png)
 
-# Rental
+# Vehicle Rental
 This resource enhances the rental experience within the QBCore and Qbox Framework environments.
+
+## 💾 Dependencies
+- [ox_lib](https://github.com/overextended/ox_lib/releases)
 
 ## 🔌 Installation
 To get started with the MTC rental resource, follow these steps:
