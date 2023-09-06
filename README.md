@@ -1,17 +1,19 @@
-![More Than Code: Vehicle Rental](https://i.imgur.com/xI6wjM0.png)
+![Rental](https://i.imgur.com/5qx3EDX.png)
 
-# Vehicle Rental
-
-A vehicle rental script for QBCore or Qbox Framework, within the script we focused on usability. In our script you have the choice to make different rental locations with different vehicles. This is completely adjustable to make your server according to your own wishes.
-
-## 💻 Dependencies
-
-- QBCore or Qbox
-- ox_lib
+# Rental
+This resource enhances the rental experience within the QBCore and Qbox Framework environments.
 
 ## 🔌 Installation
+To get started with the MTC rental resource, follow these steps:
 
-- Coming soon.
+1. Clone this repository and place the files into your designated resources folder.
+2. Rename the script file to ```mtc-vehiclerental```.
+3. Set up the necessary inventory items.
+
+## 📦 Items
+To change the item you can edit ```server/sv_main.lua``` and change the item.
+You need to supply your own image
 
 ## 👉 Join our community
-[![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/tWMvPtq8uu)
+
+[![Discord](https://discord.com/api/guilds/1075048579758035014/widget.png?style=banner2)](https://discord.gg/cFuv5BMWzK)
