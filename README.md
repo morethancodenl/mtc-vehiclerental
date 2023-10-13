@@ -1,4 +1,4 @@
-![Rental](https://i.imgur.com/5qx3EDX.png)
+![Rental](https://i.imgur.com/en78uDU.png)
 
 # Vehicle Rental
 This resource enhances the rental experience within the QBCore and Qbox Framework environments.
