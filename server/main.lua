@@ -4,7 +4,10 @@ lib.callback.register('mtc-vehiclerental:server:rentVehicle', function(source, v
     if not xPlayer.Functions.RemoveMoney('cash', vehicle.price, "vehicle-rental") then 
         return nil
     end
-    xPlayer.Functions.AddItem('rental_papers', 1)
+
+    exports.ox_inventory:AddItem(source, 'rental_papers', 1, {
+        description = "Rental papers for a " .. vehicle.label,
+    })
 
     return qbx.spawnVehicle({
         model = joaat(vehicle.model),
