@@ -1,25 +1,13 @@
-local QBCore = exports['qb-core']:GetCoreObject()
+lib.callback.register('mtc-vehiclerental:server:rentVehicle', function(source, vehicle, coords)
+    local xPlayer = exports.qbx_core:GetPlayer(source)
+    if not xPlayer then return end
+    if not xPlayer.Functions.RemoveMoney('cash', vehicle.price, "vehicle-rental") then 
+        return nil
+    end
+    xPlayer.Functions.AddItem('rental_papers', 1)
 
-CreateThread(function()
-    QBCore.Functions.AddItems({
-        ['rental_papers'] = {
-            ['name'] = 'rental_papers',
-            ['label'] = 'Rental papers',
-            ['weight'] = 100,
-            ['type'] = 'item',
-            ['image'] = 'rental.png',
-            ['unique'] = false,
-            ['useable'] = false,
-            ['shouldClose'] = false,
-            ['combinable'] = nil,
-            ['description'] = 'Rental papers for your vehicle.'
-        }
+    return qbx.spawnVehicle({
+        model = joaat(vehicle.model),
+        spawnSource = coords,
     })
-end)
-
-RegisterNetEvent('mtc-vehiclerental:server:rentVehicle', function(vehicle)
-    local Player = QBCore.Functions.GetPlayer(source)
-    if not Player then return end
-    Player.Functions.RemoveMoney('cash', vehicle.price, "vehicle-rental")
-    Player.Functions.AddItem('rental_papers', 1)
 end)

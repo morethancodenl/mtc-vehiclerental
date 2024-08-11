@@ -1,7 +1,7 @@
 ![Rental](https://i.imgur.com/rF4bOmQ.png)
 
 # Vehicle Rental
-This resource enhances the rental experience within the QBCore and Qbox Framework environments.
+Allow your players to rent vehicles for Qbox servers.
 
 ## 💾 Dependencies
 - [ox_lib](https://github.com/overextended/ox_lib/releases)
@@ -14,9 +14,19 @@ To get started with the MTC rental resource, follow these steps:
 3. Set up the necessary inventory items.
 
 ## 📦 Items
-To change the item you can edit ```server/sv_main.lua``` and change the item.
-You need to supply your own image
-
+Add the following to ox_inventory/data/items.lua
+```lua
+	["rental_papers"] = {
+		label = "Rental papers",
+		weight = 0,
+		stack = false,
+		close = true,
+		description = "Rental papers for a vehicle",
+		client = {
+			image = "rental.png",
+		}
+	},
+```
 ## 👉 Join our community
 
 [![Discord](https://discord.com/api/guilds/1075048579758035014/widget.png?style=banner2)](https://discord.gg/cFuv5BMWzK)

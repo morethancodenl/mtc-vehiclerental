@@ -1,15 +1,13 @@
 local SpawnedPed = nil
 
 local function AddTargetPed(menu)
-    exports['qb-target']:AddTargetEntity(SpawnedPed, {
-        options = {
-            { 
-                icon = 'fas fa-car', 
-                label = 'Rent a Car', 
-                action = function(entity) 
-                    lib.showContext('mtc-vehiclerental.' .. menu)
-                end,
-            }
+    exports.ox_target:addLocalEntity(SpawnedPed, {
+        {
+            icon = 'fas fa-car',
+            label = 'Rent a Car',
+            onSelect = function(entity)
+                lib.showContext('mtc-vehiclerental.' .. menu)
+            end
         }
     })
 end
@@ -21,7 +19,9 @@ local function RegisterPedSpawner(data)
 
         onEnter = function()
             lib.requestModel(data.model)
-            SpawnedPed = CreatePed(4, joaat(data.model), data.pedCoords.x, data.pedCoords.y, data.pedCoords.z, data.pedCoords.w, false, true)
+            SpawnedPed = CreatePed(4, joaat(data.model), data.pedCoords.x,
+                                   data.pedCoords.y, data.pedCoords.z,
+                                   data.pedCoords.w, false, true)
             SetEntityHeading(SpawnedPed, data.pedCoords.w)
             FreezeEntityPosition(SpawnedPed, true)
             SetEntityInvincible(SpawnedPed, true)
@@ -45,7 +45,5 @@ local function RegisterPedSpawner(data)
 end
 
 CreateThread(function()
-    for _, v in ipairs(Config.RentalLocations) do
-        RegisterPedSpawner(v)
-    end
+    for _, v in ipairs(Config.RentalLocations) do RegisterPedSpawner(v) end
 end)

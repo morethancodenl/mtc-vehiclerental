@@ -1,27 +1,25 @@
-local QBCore = exports['qb-core']:GetCoreObject()
 SpawnCoords = nil
 
 AddEventHandler('mtc-vehiclerental:client:rentVehicle', function(vehicle)
-    local PlayerData = QBCore.Functions.GetPlayerData()
-    local cash = PlayerData.money['cash']
+    local cash = QBX.PlayerData.money['cash']
 
     if cash < vehicle.price then
-        QBCore.Functions.Notify("You don't have enough money in your pocket..", "error")
+        exports.qbx_core:Notify("You don't have enough money in your pocket..", "error")
         return
     end
 
-    TriggerServerEvent('mtc-vehiclerental:server:rentVehicle', vehicle)
+    -- TriggerServerEvent("mtc-vehiclerental:server:rentVehicle", vehicle, SpawnCoords)
+    local spawnedVehicle = lib.callback.await('mtc-vehiclerental:server:rentVehicle', false, vehicle, SpawnCoords)
+    if not spawnedVehicle then 
+        exports.qbx_core:Notify("Failed to rent vehicle.", "error")
+        return
+    end
 
-    QBCore.Functions.SpawnVehicle(vehicle.model, function(veh)
-        SetEntityHeading(veh, SpawnCoords.w)
-        exports['LegacyFuel']:SetFuel(veh, 100.0)
+    local entity = NetworkGetEntityFromNetworkId(spawnedVehicle)
+    SetVehicleNumberPlateText(entity, "RENT" .. math.random(1000, 9999))
+    TriggerEvent("vehiclekeys:client:SetOwner", qbx.getVehiclePlate(entity))
+    SetVehicleEngineOn(entity, true, true, true)
+    SetVehicleDirtLevel(entity, 0.0)
 
-        SetVehicleNumberPlateText(veh, "RENT" .. math.random(1000, 9999))
-        TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(veh))
-
-        SetVehicleEngineOn(veh, true, true)    
-        SetVehicleDirtLevel(veh, 0.0)
-        
-        QBCore.Functions.Notify("Vehicle successfully rented.", "success")
-    end, SpawnCoords, true, true)
+    SetVehicleFuelLevel(entity, 100.0)
 end)
