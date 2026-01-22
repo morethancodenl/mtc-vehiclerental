@@ -1,0 +1,9 @@
+{
+    "occupied_space": "The area is not clear to spawn the vehicle",
+    "not_enough_money": "You don't have enough money to rent this vehicle",
+
+    "rent_vehicle": "Rent a Vehicle..",
+    "failed_to_rent": "Failed to rent vehicle. Please try again later.",
+
+    "rented_vehicle": "You have rented a %s for %s $"
+}

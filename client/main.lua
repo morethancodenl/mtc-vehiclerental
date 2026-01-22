@@ -1,17 +1,32 @@
+Config = require('config.config')
 SpawnCoords = nil
 
-AddEventHandler('mtc-vehiclerental:client:rentVehicle', function(vehicle)
+AddEventHandler('mtc-vehiclerental:client:rentVehicle', function(rentalLoc, model)
     local cash = QBX.PlayerData.money['cash']
+    if not rentalLoc or not model then return end
+    local vehicleOptions = Config.RentalMenus[rentalLoc].vehicles
+    for _, v in pairs(vehicleOptions) do
+        if v.model == model then
+            vehicleOptions = v
+            break
+        end
+    end
 
-    if cash < vehicle.price then
-        exports.qbx_core:Notify("You don't have enough money in your pocket..", "error")
+    if cash < vehicleOptions.price then
+        exports.qbx_core:Notify(locale('not_enough_money'), "error")
+        return
+    end
+
+    local isNotClear = IsAnyVehicleNearPoint(SpawnCoords.x, SpawnCoords.y, SpawnCoords.z, 2.5)
+    if isNotClear then
+        exports.qbx_core:Notify(locale('occupied_space'), "error")
         return
     end
 
     -- TriggerServerEvent("mtc-vehiclerental:server:rentVehicle", vehicle, SpawnCoords)
-    local spawnedVehicle = lib.callback.await('mtc-vehiclerental:server:rentVehicle', false, vehicle, SpawnCoords)
+    local spawnedVehicle = lib.callback.await('mtc-vehiclerental:server:rentVehicle', false, rentalLoc, model, SpawnCoords)
     if not spawnedVehicle then 
-        exports.qbx_core:Notify("Failed to rent vehicle.", "error")
+        exports.qbx_core:Notify(locale('failed_to_rent'), "error")
         return
     end
 

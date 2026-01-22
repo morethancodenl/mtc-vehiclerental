@@ -11,7 +11,7 @@ lua54 'yes'
 shared_scripts {
 	'@ox_lib/init.lua',
     '@qbx_core/modules/lib.lua',
-	'shared/main.lua'
+	'shared.lua'
 }
 
 client_scripts {
@@ -21,4 +21,9 @@ client_scripts {
 
 server_scripts {
 	'server/*.lua'
+}
+
+files {
+	'config/*.lua',
+	'locales/*.json'
 }

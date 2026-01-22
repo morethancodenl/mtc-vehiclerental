@@ -4,7 +4,7 @@ local function AddTargetPed(menu)
     exports.ox_target:addLocalEntity(SpawnedPed, {
         {
             icon = 'fas fa-car',
-            label = 'Rent a Car',
+            label = locale('rent_vehicle'),
             onSelect = function(entity)
                 lib.showContext('mtc-vehiclerental.' .. menu)
             end
